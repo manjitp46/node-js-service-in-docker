@@ -3,6 +3,7 @@ version: '3'
 services:
   nodeapp-service-build:
     build: ./nodeapp
+    restart: always
   mongodb-service-build:
     build: ./mongodb
     # ports:
@@ -12,6 +13,7 @@ services:
     stdin_open: true
   nginx-service-build:
     image: nginx
+    container_name: nginx
     ports:
      - "80:9000"
     volumes:
