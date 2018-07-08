@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  nodeapp-service-build:
+    build: ./nodeapp
+  mongodb-service-build:
+    build: ./mongodb
+    # ports:
+    #  - "27017:27017"
+    volumes:
+      - "/home/manjit/database:/data/db" 
+    stdin_open: true
+  nginx-service-build:
+    image: nginx
+    ports:
+     - "80:9000"
+    volumes:
+      - "./nginx/nginx.conf:/etc/nginx/nginx.conf"
+      - "./nginx/www:/data/www"
+    depends_on:
+      - nodeapp-service-build
