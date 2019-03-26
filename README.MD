@@ -3,3 +3,5 @@
 ## adding more lines
 
 ## adding demo for branch
+
+## adding conflicting lines of code
